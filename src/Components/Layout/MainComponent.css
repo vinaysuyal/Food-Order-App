@@ -1,0 +1,28 @@
+.chillam-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 90px;
+    z-index: -10;
+    overflow: visible;
+}
+main {
+    margin-top: 90px;
+}
+.chillam-logo > img {
+    height: 20vw;
+}
+
+@media screen and (max-width: 1000px) {
+    .chillam-logo > img {
+        height: 40vw;
+    }
+  }
+
+@media screen and (max-width: 516px) {
+    .chillam-logo {
+        position: sticky;
+        top: 136px;
+    }
+  }

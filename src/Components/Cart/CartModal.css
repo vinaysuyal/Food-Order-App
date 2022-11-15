@@ -1,0 +1,46 @@
+.clickBlocker {
+    position: fixed;
+    height: 200vh;
+    width: 200vw;
+    top: 0px;
+    z-index: 25;
+    background-color: rgb(255, 255, 255, 0.5);
+}
+.cartModal {
+    z-index: 30;
+    animation: fadeIn 1s;
+    position: fixed;
+    top: 0px;
+    margin: auto;
+    height: 90vh;
+    width: 90vw;
+    margin-left: 50vw;
+    margin-top: 50vh;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px 20px 20px 20px;
+    overflow: scroll;
+}
+
+.cart-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cartModal .meals-card {
+    width: 100%;
+}
+
+.cartModal li {
+    width: 100%;
+}

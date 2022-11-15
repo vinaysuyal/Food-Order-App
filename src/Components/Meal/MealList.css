@@ -1,0 +1,12 @@
+.mealList {
+display: flex;
+justify-content: center;
+z-index: 10;
+background-color: white;
+opacity: 0.95;
+}
+@media screen and (max-width: 516px) {
+    .mealList {
+        margin-top: 2rem;
+        }
+  }

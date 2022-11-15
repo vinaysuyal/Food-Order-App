@@ -1,0 +1,10 @@
+.header-bar {
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    padding: 0px 30px 20px 20px;
+    display: flex;
+    z-index: 20;
+    background-color: white;
+    justify-content: space-between;
+}

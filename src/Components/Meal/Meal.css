@@ -1,0 +1,17 @@
+.meals-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px 0px 10px;
+    width: 90vw; 
+    max-width: 100%;
+}
+@media screen and (min-width: 500px) {
+    .meals-card {
+        width: 450px;   
+    }
+  }
+@media screen and (min-width: 850px) {
+    .meals-card {
+        width: 800px;
+    }
+  }
