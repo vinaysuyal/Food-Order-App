@@ -1,19 +1,21 @@
-const AddRemoveForm = props => {
-    const onChangeEventHandler = (event) => {
-        event.preventDefault();
-        props.onChange(event.target.value);
-    }
-    return (
-        <form>
-            <span><h5 style={{display:'inline'}}>x </h5></span> <input type='number'
-            value={props.value}
-            onChange={onChangeEventHandler}
-             min={0} 
-             max={30} 
-             step={1}>
-             </input>
-        </form>
-    )
-}
+const AddRemoveForm = (props) => {
+  const onChangeEventHandler = (event) => {
+    event.preventDefault();
+    if(event.target.name === '+')
+        props.onChange(props.value + 1);
+    else if(props.value == 0) return;
+    else props.onChange(props.value - 1);
+    //props.onChange(event.target.value);
+  };
+  return (
+    <>
+    <div className="addRemoveForm">
+      <button onClick={onChangeEventHandler} name='-'>-</button>
+      <span>{props.value}</span>
+      <button onClick={onChangeEventHandler} name='+'>+</button>
+    </div>
+    </>
+  );
+};
 
 export default AddRemoveForm;

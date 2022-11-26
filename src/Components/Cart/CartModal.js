@@ -29,7 +29,7 @@ const CartModal = () => {
             {getItemList()}
         </ul>
         <img className="cart-close" onClick={() => {cartContext.cartVisibilityHandler(false)}} src={crossIcon}></img>
-        <h2>Total: {totalCharge.toFixed(2)}</h2>
+        <h2>Total: ₹ {totalCharge.toFixed(2)}</h2>
         </Card>  
     </>
              

@@ -26,6 +26,7 @@ const MealList = props => {
   </li>);
     return(
         <Card className='mealList'>
+          {requestEncounteredError && <p>Ooops.. Please check your internet Connection</p>}
         <ul>
             {getMealList}
         </ul>

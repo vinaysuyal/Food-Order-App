@@ -25,7 +25,9 @@ export const CartManagerComponent = (props) => {
   }
   useEffect(() => {
     if(!hasStarted.current) {
-        const timeOut = setTimeout(async () => {
+      localStorage.setItem('cart',JSON.stringify(cartState));
+      //Following code needs to be implemented if cart data is to be stored in database
+        /*const timeOut = setTimeout(async () => {
             await fetchData("cart", null, {
                 method: "PUT",
                 headers: {
@@ -33,8 +35,8 @@ export const CartManagerComponent = (props) => {
                 },
                 body: JSON.stringify(cartState),
               });
-        }, 6000)
-        return () => {clearTimeout(timeOut)};
+        }, 500)
+        return () => {clearTimeout(timeOut)};*/
     }  
     else 
     hasStarted.current = false;
@@ -42,16 +44,20 @@ export const CartManagerComponent = (props) => {
 
   useEffect(
     () => {
-        const fetchAsync = async () => {
+      const localCartState = JSON.parse(localStorage.getItem('cart'));
+      setCartState(localCartState);
+      hasStarted.current = true;
+      //Following code needs to be implemented if cart data is to be stored in database
+       /* const fetchAsync = async () => {
             await fetchData("cart", setCartState);
-            hasStarted.current = true;
         }
-        fetchAsync();
+        fetchAsync();*/
     } 
     ,[])
   const [isCartVisible, changeCartVisibility] = useState(false);
 
   const cartDataDispatchHandler = (action) => {
+    action.fetchData = fetchData;
     dispatchCartData(action);
   };
   const cartVisibilityHandler = (newVisibility) => {
@@ -65,6 +71,7 @@ export const CartManagerComponent = (props) => {
         isCartVisible: isCartVisible,
         dispatchCartData: cartDataDispatchHandler,
         cartVisibilityHandler: cartVisibilityHandler,
+        requestEncounteredError: requestEncounteredError,
       }}
     >
       {props.children}

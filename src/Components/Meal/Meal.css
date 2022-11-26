@@ -1,9 +1,10 @@
 .meals-card {
     display: flex;
     justify-content: space-between;
-    padding: 0px 10px 0px 10px;
+    padding: 0px 20px 0px 20px;
     width: 90vw; 
     max-width: 100%;
+    text-align: center;
 }
 @media screen and (min-width: 500px) {
     .meals-card {
@@ -14,4 +15,23 @@
     .meals-card {
         width: 800px;
     }
+  }
+  .addRemoveForm {
+    min-width: fit-content;
+    display: flex;
+    align-items: center;
+  }
+  .addRemoveForm span {
+    width: 2rem;
+  }
+
+  .mealDescription {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  h5 {
+    margin-top: 0px;
+    margin-bottom: 20px;
   }

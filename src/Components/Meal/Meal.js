@@ -14,12 +14,12 @@ const Meal = props => {
     const matchItem = cartContext.cartData.find((item) => item.id === props.mealData.id);
     return (
         <Card className='meals-card'>
-            <div>
+            <div className="mealDescription">
             <h3>{props.mealData.name}</h3>
             <h5>{props.mealData.description}</h5>
             </div>
-            <div>
-            <h3>{props.mealData.price}</h3>
+            <div className="pricingAndCart">
+            <h3>₹ {props.mealData.price}</h3>
             <AddRemoveForm onChange={onAddCartItem} value = {matchItem ? matchItem.reps : 0}/>
             </div>
         </Card>
