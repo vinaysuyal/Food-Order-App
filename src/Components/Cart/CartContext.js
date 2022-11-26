@@ -17,7 +17,7 @@ export const CartManagerComponent = (props) => {
   });
   const [isListLoading, requestEncounteredError, fetchData] = useRequest();
   const setCartState = (data) => {
-    const cartData = data.cartData
+    const cartData = data.cartData || [];
     dispatchCartData({
         type:'SetCart',
         newCartData: cartData,
