@@ -17,7 +17,8 @@ export const CartManagerComponent = (props) => {
   });
   const [isListLoading, requestEncounteredError, fetchData] = useRequest();
   const setCartState = (data) => {
-    const cartData = data.cartData || [];
+    console.log(data);
+    const cartData = data ? data.cartData  : [];
     dispatchCartData({
         type:'SetCart',
         newCartData: cartData,
@@ -45,6 +46,7 @@ export const CartManagerComponent = (props) => {
   useEffect(
     () => {
       const localCartState = JSON.parse(localStorage.getItem('cart'));
+      console.log(localCartState);
       setCartState(localCartState);
       hasStarted.current = true;
       //Following code needs to be implemented if cart data is to be stored in database
