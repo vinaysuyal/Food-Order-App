@@ -23,7 +23,12 @@ const useRequest = () => {
         {
             changerequestErrorState(true)
         }
-        changeLoadingState(false);
+        setTimeout(
+            () => {
+                changeLoadingState(false);
+            },
+            3000
+        )
     }, []);
     return [isListLoading, requestEncounteredError ,fetchData];
 }

@@ -10,3 +10,21 @@ opacity: 0.95;
         margin-top: 2rem;
         }
   }
+
+  .momo-gif {
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    width: 20vw;
+    z-index: 30;
+}
+
+.clickBlocker2 {
+    position: fixed;
+    height: 200vh;
+    width: 200vw;
+    top: 0px;
+    z-index: 25;
+    background-color: aliceblue;
+}

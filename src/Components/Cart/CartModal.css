@@ -44,3 +44,15 @@ ul {
 .cartModal li {
     width: 100%;
 }
+
+.checkoutPrompter {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+}
+
+.checkoutPrompter button {
+    font-size: 1.5rem;
+    align-self: center;
+    padding: 20px;
+}
