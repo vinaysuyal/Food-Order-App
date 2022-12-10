@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import { useReducer } from "react";
+import { AuthContext } from "../../Context/authcontext";
 import useRequest from "../Hooks/use-request";
 
 const CartContext = React.createContext({
@@ -9,6 +10,7 @@ const CartContext = React.createContext({
 });
 
 export const CartManagerComponent = (props) => {
+  const {isLoggedIn} = useContext(AuthContext);
   const hasStarted = useRef(true);
   const [cartState, dispatchCartData] = useReducer(updateCart, {
     cartData: [],
@@ -26,7 +28,7 @@ export const CartManagerComponent = (props) => {
   }
   useEffect(() => {
     if(!hasStarted.current) {
-      //localStorage.setItem('cart',JSON.stringify(cartState));
+        localStorage.setItem('cart',JSON.stringify(cartState));
       //Following code needs to be implemented if cart data is to be stored in database
         // const timeOut = setTimeout(async () => {
         //     await fetchData("cart", null, {
@@ -45,9 +47,11 @@ export const CartManagerComponent = (props) => {
 
   useEffect(
     () => {
-      // const localCartState = JSON.parse(localStorage.getItem('cart'));
-      // console.log(localCartState);
-      // setCartState(localCartState);
+      if(!isLoggedIn)
+        return;
+      const localCartState = JSON.parse(localStorage.getItem('cart'));
+      console.log(localCartState);
+      setCartState(localCartState);
       hasStarted.current = true;
       //Following code needs to be implemented if cart data is to be stored in database
       //  const fetchAsync = async () => {

@@ -13,10 +13,8 @@ function App() {
       <HeaderComponent />
       {!authContext.isLoggedIn && <SignInSignUp />}
       {authContext.isLoggedIn && (
-        <>
-          <CartManagerComponent>
+        <>        
             <MainComponent />
-          </CartManagerComponent>
         </>
       )}
     </>
