@@ -13,9 +13,7 @@ const CartModal = () => {
         return cartData.map((item) =>
         {
             totalCharge += item.price * item.reps;
-            return <li key={item.id}>
-                <Meal mealData={item} />           
-                </li>
+            return <Meal key={item.id} mealData={item} />           
         }
         )
     } 

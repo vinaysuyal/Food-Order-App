@@ -13,14 +13,12 @@ const MealList = (props) => {
     fetchData("meals", setDummyMeals);
   }, [fetchData]);
   const getMealList = Object.keys(DUMMY_MEALS).map((id) => (
-    <li key={id}>
-      <Meal
+      <Meal key={id}
         mealData={{
           ...DUMMY_MEALS[id],
           id,
         }}
       />
-    </li>
   ));
   return (
     <>

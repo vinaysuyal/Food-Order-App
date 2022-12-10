@@ -10,9 +10,9 @@ const AddRemoveForm = (props) => {
   return (
     <>
     <div className="addRemoveForm">
-      <button onClick={onChangeEventHandler} name='-'>-</button>
+      <button style={{color:'#2a2c41'}} onClick={onChangeEventHandler} name='-'>-</button>
       <span>{props.value}</span>
-      <button onClick={onChangeEventHandler} name='+'>+</button>
+      <button style={{color:'#2a2c41'}} onClick={onChangeEventHandler} name='+'>+</button>
     </div>
     </>
   );

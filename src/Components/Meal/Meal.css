@@ -5,6 +5,7 @@
     width: 90vw; 
     max-width: 100%;
     text-align: center;
+    margin-bottom: 20px
 }
 @media screen and (min-width: 500px) {
     .meals-card {
@@ -20,10 +21,19 @@
     min-width: fit-content;
     display: flex;
     align-items: center;
+    color: green;
+    font-weight: bold;
   }
   .addRemoveForm span {
     width: 2rem;
   }
+  .addRemoveForm button {
+    color: green !important;
+    font-weight: bold;
+    border: none;
+    background-color: white;
+    font-size: 1.5rem;
+}
 
   .mealDescription {
     display: flex;
@@ -31,7 +41,13 @@
     align-items: flex-start;
     text-align: left;
   }
-  h5 {
+  .mealDescription h5 {
     margin-top: 0px;
     margin-bottom: 20px;
+    color: #ff9800;
   }
+  .pricingAndCart h3 {
+    color: #2a2c41;
+    font-weight: 600;
+}
+  

@@ -12,6 +12,7 @@ main {
 }
 .chillam-logo > img {
     height: 20vw;
+    border-radius: 15px;
 }
 
 @media screen and (max-width: 1000px) {

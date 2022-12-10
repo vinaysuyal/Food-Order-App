@@ -26,18 +26,18 @@ export const CartManagerComponent = (props) => {
   }
   useEffect(() => {
     if(!hasStarted.current) {
-      localStorage.setItem('cart',JSON.stringify(cartState));
+      //localStorage.setItem('cart',JSON.stringify(cartState));
       //Following code needs to be implemented if cart data is to be stored in database
-        /*const timeOut = setTimeout(async () => {
-            await fetchData("cart", null, {
-                method: "PUT",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(cartState),
-              });
-        }, 500)
-        return () => {clearTimeout(timeOut)};*/
+        // const timeOut = setTimeout(async () => {
+        //     await fetchData("cart", null, {
+        //         method: "PUT",
+        //         headers: {
+        //           "Content-Type": "application/json",
+        //         },
+        //         body: JSON.stringify(cartState),
+        //       });
+        // }, 500)
+        // return () => {clearTimeout(timeOut)};
     }  
     else 
     hasStarted.current = false;
@@ -45,15 +45,15 @@ export const CartManagerComponent = (props) => {
 
   useEffect(
     () => {
-      const localCartState = JSON.parse(localStorage.getItem('cart'));
-      console.log(localCartState);
-      setCartState(localCartState);
+      // const localCartState = JSON.parse(localStorage.getItem('cart'));
+      // console.log(localCartState);
+      // setCartState(localCartState);
       hasStarted.current = true;
       //Following code needs to be implemented if cart data is to be stored in database
-       /* const fetchAsync = async () => {
-            await fetchData("cart", setCartState);
-        }
-        fetchAsync();*/
+      //  const fetchAsync = async () => {
+      //       await fetchData("cart", setCartState);
+      //   }
+      //   fetchAsync();
     } 
     ,[])
   const [isCartVisible, changeCartVisibility] = useState(false);
