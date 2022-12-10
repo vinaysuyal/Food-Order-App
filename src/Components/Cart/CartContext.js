@@ -27,6 +27,8 @@ export const CartManagerComponent = (props) => {
     });
   }
   useEffect(() => {
+    if(!isLoggedIn)
+        return;
     if(!hasStarted.current) {
         localStorage.setItem('cart',JSON.stringify(cartState));
       //Following code needs to be implemented if cart data is to be stored in database
@@ -59,7 +61,7 @@ export const CartManagerComponent = (props) => {
       //   }
       //   fetchAsync();
     } 
-    ,[])
+    ,[isLoggedIn])
   const [isCartVisible, changeCartVisibility] = useState(false);
 
   const cartDataDispatchHandler = (action) => {

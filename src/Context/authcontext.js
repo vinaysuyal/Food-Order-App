@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, useCallback } from "react";
 
 export const AuthContext = createContext({
   authToken: "",
@@ -16,6 +16,16 @@ const expiryTimeCalculator = (expiryTime) => {
 const AuthContextProvider = (props) => {
   const [isLoggedIn, changeLoginStatus] = useState(false);
   const [authToken, setAuthToken] = useState("");
+  const loginHandler = useCallback((authToken, expiryTime) => {
+    changeLoginStatus(true);
+    setAuthToken(authToken);
+    localStorage.setItem("auth-token", authToken);
+    localStorage.setItem("expiry-time", expiryTimeCalculator(expiryTime));
+    autoOutLogger = setTimeout(() => {
+      logOutHandler();
+      alert('logging out');
+    }, parseInt(expiryTime) * 1000);
+  });
   useEffect(() => {
     const authToken = localStorage.getItem("auth-token");
     const expiryTime = localStorage.getItem("expiry-time");
@@ -29,22 +39,12 @@ const AuthContextProvider = (props) => {
       loginHandler(authToken, expiryTimeLeft/1000);
     }
     else logOutHandler();
-  }, []);
-  const loginHandler = (authToken, expiryTime) => {
-    changeLoginStatus(true);
-    setAuthToken(authToken);
-    localStorage.setItem("auth-token", authToken);
-    localStorage.setItem("expiry-time", expiryTimeCalculator(expiryTime));
-    autoOutLogger = setTimeout(() => {
-      logOutHandler();
-      alert('logging out');
-    }, parseInt(expiryTime) * 1000);
-  };
+  }, [loginHandler]);
   const logOutHandler = () => {
     changeLoginStatus(false);
     clearTimeout(autoOutLogger);
-    localStorage.clear("auth-token");
-    localStorage.clear("expiry-time");
+    localStorage.removeItem("auth-token");
+    localStorage.removeItem("expiry-time");
   };
   return (
     <AuthContext.Provider
