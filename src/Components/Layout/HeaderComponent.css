@@ -21,6 +21,9 @@
 .left-nav {
   justify-content: flex-start;
 }
+.left-nav h1 {
+  margin-bottom: 0px;
+}
 
 .right-nav button, .right-nav span {
   border: none;
