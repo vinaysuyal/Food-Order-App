@@ -9,6 +9,9 @@ const CartModal = () => {
     const cartContext = useContext(CartContext);
     const cartData = cartContext.cartData;
     let totalCharge = 0;
+    const orderHandler = (event) => {
+        alert("This is a Demo Project. Ordering not supported");
+    }
     const getItemList = () => {
         return cartData.map((item) =>
         {
@@ -28,7 +31,7 @@ const CartModal = () => {
         </ul>
         <img className="cart-close" onClick={() => {cartContext.cartVisibilityHandler(false)}} src={crossIcon}></img>
         <div className="checkoutPrompter">
-        <h2>Total: ₹ {totalCharge.toFixed(2)}</h2><button style={{fontWeight:"bold"}}>Feed me Momos</button>        
+        <h2>Total: ₹ {totalCharge.toFixed(2)}</h2><button onClick={orderHandler} style={{fontWeight:"bold"}}>Feed me Momos</button>        
         </div>
         </Card>  
     </>

@@ -20,7 +20,8 @@ const Meal = props => {
             </div>
             <div className="pricingAndCart">
             <h3>₹ {props.mealData.price}</h3>
-            <AddRemoveForm onChange={onAddCartItem} value = {matchItem ? matchItem.reps : 0}/>
+            {props.isConfirmedOrder && <span>{props.value}</span>}
+            {!props.isConfirmedOrder && <AddRemoveForm onChange={onAddCartItem} value = {matchItem ? matchItem.reps : 0}/>}
             </div>
         </Card>
     );
