@@ -32,7 +32,7 @@ const CartModal = () => {
         <h1> My Cart </h1>
         {cartData.length > 0 && (
           <>
-            <ul> getItemList()</ul>
+            <ul> {getItemList()}</ul>
             <div className="checkoutPrompter">
               <h2>Total: ₹ {totalCharge.toFixed(2)}</h2>
               <button onClick={orderHandler} style={{ fontWeight: "bold" }}>
