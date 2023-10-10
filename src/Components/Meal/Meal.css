@@ -1,53 +1,52 @@
 .meals-card {
-    display: flex;
-    justify-content: space-between;
-    padding: 0px 20px 0px 20px;
-    width: 90vw; 
-    max-width: 100%;
-    text-align: center;
-    margin-bottom: 20px
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 20px 0px 20px;
+  width: 90vw;
+  max-width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
 }
 @media screen and (min-width: 500px) {
-    .meals-card {
-        width: 450px;   
-    }
+  .meals-card {
+    width: 450px;
   }
+}
 @media screen and (min-width: 850px) {
-    .meals-card {
-        width: 800px;
-    }
+  .meals-card {
+    width: 800px;
   }
-  .addRemoveForm {
-    min-width: fit-content;
-    display: flex;
-    align-items: center;
-    color: green;
-    font-weight: bold;
-  }
-  .addRemoveForm span {
-    width: 2rem;
-  }
-  .addRemoveForm button {
-    color: green !important;
-    font-weight: bold;
-    border: none;
-    background-color: white;
-    font-size: 1.5rem;
+}
+.addRemoveForm {
+  min-width: fit-content;
+  display: flex;
+  align-items: center;
+  color: green;
+  font-weight: bold;
+}
+.addRemoveForm span {
+  width: 2rem;
+}
+.addRemoveForm button {
+  color: green !important;
+  font-weight: bold;
+  border: none;
+  background-color: white;
+  font-size: 1.5rem;
 }
 
-  .mealDescription {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-  }
-  .mealDescription h5 {
-    margin-top: 0px;
-    margin-bottom: 20px;
-    color: #ff9800;
-  }
-  .pricingAndCart h3 {
-    color: #2a2c41;
-    font-weight: 600;
+.mealDescription {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
 }
-  
+.mealDescription h5 {
+  margin-top: 0px;
+  margin-bottom: 20px;
+  color: #ff724c;
+}
+.pricingAndCart h3 {
+  color: #2a2c41;
+  font-weight: 600;
+}

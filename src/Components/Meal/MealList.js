@@ -4,7 +4,7 @@ import "./MealList.css";
 import useRequest from "../Hooks/use-request";
 import { useCallback, useEffect, useState } from "react";
 import momosGIF from "../assets/momos.gif";
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 
 const MealList = (props) => {
   const [DUMMY_MEALS, setDummyMeals] = useState([]);
@@ -13,12 +13,13 @@ const MealList = (props) => {
     fetchData("meals", setDummyMeals);
   }, [fetchData]);
   const getMealList = Object.keys(DUMMY_MEALS).map((id) => (
-      <Meal key={id}
-        mealData={{
-          ...DUMMY_MEALS[id],
-          id,
-        }}
-      />
+    <Meal
+      key={id}
+      mealData={{
+        ...DUMMY_MEALS[id],
+        id,
+      }}
+    />
   ));
   return (
     <>
@@ -26,7 +27,11 @@ const MealList = (props) => {
         ReactDOM.createPortal(
           <>
             <div className="clickBlocker2"></div>
-            <img className="momo-gif" style={{ width: "30vw" }} src={momosGIF} />
+            <img
+              className="momo-gif"
+              style={{ width: "30vw" }}
+              src={momosGIF}
+            />
           </>,
           document.getElementById("CartPortal")
         )}

@@ -70,14 +70,6 @@ const SignUpForm = () => {
             required
           />
 
-          <p>
-            By creating an account you agree to our{" "}
-            <a href="#" style={{ color: "dodgerblue" }}>
-              Terms & Privacy
-            </a>
-            .
-          </p>
-
           <div className="clearfix">
             <button type="submit" className="signupbtn">
               Sign Up

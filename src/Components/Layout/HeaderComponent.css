@@ -6,8 +6,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   z-index: 20;
-  background-color: white;
   justify-content: space-around;
+  background-color: white;
 }
 
 .right-nav,
@@ -23,21 +23,32 @@
 }
 .left-nav h1 {
   margin-bottom: 0px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
 }
 
-.right-nav button, .right-nav span {
-  border: none;
-  background: #ff724c;
-  border-radius: 12px;
-  color: white;
+.right-nav div {
+  animation-name: superman-fly-right;
+  animation-duration: 1s;
 }
-.right-nav button:hover, .right-nav span:hover {
+
+.right-nav span:hover,
+.right-nav div:hover {
   cursor: pointer;
+  transform: scale(1.5);
 }
 #signOutButton {
-  height: 80px;
   display: flex;
   align-items: center;
   padding: 10px;
   margin-left: 20px;
+}
+
+@keyframes superman-fly-right {
+  from {
+    transform: translateY(-100px);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
