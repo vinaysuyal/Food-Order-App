@@ -8,6 +8,10 @@ const SignUpForm = () => {
   const { loginHandler } = useContext(AuthContext);
   const signUpSubmitFormHandler = async (event) => {
     event.preventDefault();
+    if (password.current.value != password2.current.value) {
+      alert("Passwords do not match.");
+      return;
+    }
     const data = {
       email: email.current.value,
       password: password.current.value,
