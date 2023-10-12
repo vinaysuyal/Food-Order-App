@@ -23,13 +23,9 @@ const useRequest = () => {
       } catch (error) {
         changerequestErrorState(true);
       }
-      changeLoadingState(false);
-      // setTimeout(
-      //     () => {
-      //         changeLoadingState(false);
-      //     },
-      //     3000
-      // )
+      setTimeout(() => {
+        changeLoadingState(false);
+      }, 3000);
     },
     []
   );

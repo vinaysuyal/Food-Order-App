@@ -21,7 +21,6 @@ const SignUpForm = () => {
           body: JSON.stringify(data),
         }
       );
-      console.log(requestResponse);
       const response = await requestResponse.json();
       if (requestResponse.ok)
         loginHandler(response.idToken, response.expiresIn);

@@ -1,10 +1,9 @@
+import { useEffect, useState } from "react";
+import useRequest from "../Hooks/use-request";
 import Card from "../UI/Card";
 import Meal from "./Meal";
 import "./MealList.css";
-import useRequest from "../Hooks/use-request";
-import { useCallback, useEffect, useState } from "react";
-import momosGIF from "../assets/momos.gif";
-import ReactDOM from "react-dom";
+import MealSkeleton from "./MealSkeleton";
 
 const MealList = (props) => {
   const [DUMMY_MEALS, setDummyMeals] = useState([]);
@@ -23,7 +22,7 @@ const MealList = (props) => {
   ));
   return (
     <>
-      {isListLoading &&
+      {/* {isListLoading &&
         ReactDOM.createPortal(
           <>
             <div className="clickBlocker2"></div>
@@ -34,10 +33,15 @@ const MealList = (props) => {
             />
           </>,
           document.getElementById("CartPortal")
-        )}
+        )} */}
       <Card className="mealList">
         {requestEncounteredError && (
           <p>Ooops.. Please check your internet Connection</p>
+        )}
+        {isListLoading && (
+          <ul>
+            <MealSkeleton count={4} />
+          </ul>
         )}
         {!isListLoading && <ul>{getMealList}</ul>}
       </Card>

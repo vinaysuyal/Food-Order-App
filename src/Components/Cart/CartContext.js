@@ -10,7 +10,7 @@ const CartContext = React.createContext({
 });
 
 export const CartManagerComponent = (props) => {
-  const {isLoggedIn} = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
   const hasStarted = useRef(true);
   const [cartState, dispatchCartData] = useReducer(updateCart, {
     cartData: [],
@@ -19,49 +19,41 @@ export const CartManagerComponent = (props) => {
   });
   const [isListLoading, requestEncounteredError, fetchData] = useRequest();
   const setCartState = (data) => {
-    console.log(data);
-    const cartData = data ? data.cartData  : [];
+    const cartData = data ? data.cartData : [];
     dispatchCartData({
-        type:'SetCart',
-        newCartData: cartData,
+      type: "SetCart",
+      newCartData: cartData,
     });
-  }
+  };
   useEffect(() => {
-    if(!isLoggedIn)
-        return;
-    if(!hasStarted.current) {
-        localStorage.setItem('cart',JSON.stringify(cartState));
+    if (!isLoggedIn) return;
+    if (!hasStarted.current) {
+      localStorage.setItem("cart", JSON.stringify(cartState));
       //Following code needs to be implemented if cart data is to be stored in database
-        // const timeOut = setTimeout(async () => {
-        //     await fetchData("cart", null, {
-        //         method: "PUT",
-        //         headers: {
-        //           "Content-Type": "application/json",
-        //         },
-        //         body: JSON.stringify(cartState),
-        //       });
-        // }, 500)
-        // return () => {clearTimeout(timeOut)};
-    }  
-    else 
-    hasStarted.current = false;
+      // const timeOut = setTimeout(async () => {
+      //     await fetchData("cart", null, {
+      //         method: "PUT",
+      //         headers: {
+      //           "Content-Type": "application/json",
+      //         },
+      //         body: JSON.stringify(cartState),
+      //       });
+      // }, 500)
+      // return () => {clearTimeout(timeOut)};
+    } else hasStarted.current = false;
   }, [cartState]);
 
-  useEffect(
-    () => {
-      if(!isLoggedIn)
-        return;
-      const localCartState = JSON.parse(localStorage.getItem('cart'));
-      console.log(localCartState);
-      setCartState(localCartState);
-      hasStarted.current = true;
-      //Following code needs to be implemented if cart data is to be stored in database
-      //  const fetchAsync = async () => {
-      //       await fetchData("cart", setCartState);
-      //   }
-      //   fetchAsync();
-    } 
-    ,[isLoggedIn])
+  useEffect(() => {
+    if (!isLoggedIn) return;
+    const localCartState = JSON.parse(localStorage.getItem("cart"));
+    setCartState(localCartState);
+    hasStarted.current = true;
+    //Following code needs to be implemented if cart data is to be stored in database
+    //  const fetchAsync = async () => {
+    //       await fetchData("cart", setCartState);
+    //   }
+    //   fetchAsync();
+  }, [isLoggedIn]);
   const [isCartVisible, changeCartVisibility] = useState(false);
 
   const cartDataDispatchHandler = (action) => {
@@ -113,12 +105,11 @@ const updateCart = (prevState, action) => {
       count: updatedCartData.length,
     };
   }
-  if (action.type === "SetCart")
-  {
+  if (action.type === "SetCart") {
     return {
-        cartData: [...action.newCartData],
-        count: action.newCartData.length,
-      };
+      cartData: [...action.newCartData],
+      count: action.newCartData.length,
+    };
   }
   return prevState;
 };
