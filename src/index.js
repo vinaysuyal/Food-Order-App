@@ -5,13 +5,32 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import AuthContextProvider from "./Context/authcontext";
 import { CartManagerComponent } from "./Components/Cart/CartContext";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import CartModal from "./Components/Cart/CartModal";
+import MainComponent from "./Components/Layout/MainComponent";
+let router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        index: true,
+        element: <MainComponent />,
+      },
+      {
+        path: "/cart",
+        element: <CartModal />,
+      },
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <AuthContextProvider>
       <CartManagerComponent>
-        <App />
+        <RouterProvider router={router} />
       </CartManagerComponent>
     </AuthContextProvider>
   </React.StrictMode>

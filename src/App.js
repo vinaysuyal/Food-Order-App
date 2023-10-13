@@ -6,6 +6,7 @@ import { useContext } from "react";
 import HeaderComponent from "./Components/Layout/HeaderComponent";
 import MainComponent from "./Components/Layout/MainComponent";
 import { CartManagerComponent } from "./Components/Cart/CartContext";
+import { Outlet } from "react-router-dom";
 function App() {
   const authContext = useContext(AuthContext);
   return (
@@ -13,8 +14,8 @@ function App() {
       <HeaderComponent />
       {!authContext.isLoggedIn && <SignInSignUp />}
       {authContext.isLoggedIn && (
-        <>        
-            <MainComponent />
+        <>
+          <Outlet />
         </>
       )}
     </>

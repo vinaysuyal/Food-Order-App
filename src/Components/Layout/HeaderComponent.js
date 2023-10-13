@@ -7,6 +7,7 @@ import "./HeaderComponent.css";
 import { AuthContext } from "../../Context/authcontext";
 import CartIcon from "../Cart/CartIcon";
 import LogoutIcon from "../../Icons/LogOutIcon";
+import { Link } from "react-router-dom";
 
 const HeaderComponent = (props) => {
   const cartContext = useContext(CartContext);
@@ -24,14 +25,16 @@ const HeaderComponent = (props) => {
           </div>
           {authContext.isLoggedIn && (
             <div key={cartContext.count} className="right-nav">
-              <div
-                onClick={() => {
-                  cartContext.cartVisibilityHandler(true);
-                }}
-              >
-                <CartIcon />
-                <span>Cart ({cartContext.count})</span>
-              </div>
+              <Link to="cart">
+                <div
+                  onClick={() => {
+                    cartContext.cartVisibilityHandler(true);
+                  }}
+                >
+                  <CartIcon />
+                  <span>Cart ({cartContext.count})</span>
+                </div>
+              </Link>
               <span id="signOutButton" onClick={logOutButtonHandler}>
                 <LogoutIcon />
               </span>
@@ -39,11 +42,6 @@ const HeaderComponent = (props) => {
           )}
         </nav>
       </>
-      {cartContext.isCartVisible &&
-        ReactDOM.createPortal(
-          <CartModal />,
-          document.getElementById("CartPortal")
-        )}
     </header>
   );
 };

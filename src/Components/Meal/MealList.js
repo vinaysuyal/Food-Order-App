@@ -22,18 +22,6 @@ const MealList = (props) => {
   ));
   return (
     <>
-      {/* {isListLoading &&
-        ReactDOM.createPortal(
-          <>
-            <div className="clickBlocker2"></div>
-            <img
-              className="momo-gif"
-              style={{ width: "30vw" }}
-              src={momosGIF}
-            />
-          </>,
-          document.getElementById("CartPortal")
-        )} */}
       <Card className="mealList">
         {requestEncounteredError && (
           <p>Ooops.. Please check your internet Connection</p>

@@ -18,6 +18,10 @@
   align-items: center;
   justify-content: flex-end;
 }
+.right-nav a {
+  text-decoration: none;
+  color: inherit;
+}
 .left-nav {
   justify-content: flex-start;
 }
